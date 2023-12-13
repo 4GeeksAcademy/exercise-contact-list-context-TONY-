@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
-import { name } from "file-loader";
+//import { name } from "file-loader";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
@@ -57,12 +57,11 @@ export const ContactCard = props => {
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
-	name : PropTypes.string,
-	address : PropTypes.string,
-	phone : PropTypes.string,
-	email : PropTypes.string,
-	id : PropTypes.string,
-
+	name: PropTypes.string,
+	address: PropTypes.string,
+	phone: PropTypes.string,
+	email: PropTypes.string,
+	id: PropTypes.string
 };
 
 /**

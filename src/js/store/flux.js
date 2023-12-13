@@ -33,6 +33,15 @@ const getState = ({ getStore, setStore }) => {
 					.then(response => response.json()) //la respuesta se transformara en .json
 					.then(data => setStore({ contactos: data })) //Guardara la info en contactos
 					.catch(error => console.log(error)); //muestra algun error por consola
+			},
+			borrarContactos: id => {
+				fetch("https://playground.4geeks.com/apis/fake/contact/" + id, {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" }
+				})
+					.then(response => response.json()) //la respuesta se transformara en .json
+					.then(data => console.log(data)) //muestra la info por consola
+					.catch(error => console.log(error)); //muestra algun error por consola
 			}
 		}
 	};
