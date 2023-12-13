@@ -2,6 +2,7 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
+			contactos: []
 		},
 		actions: {
 			//(Arrow) Functions that update the Store
@@ -24,6 +25,13 @@ const getState = ({ getStore, setStore }) => {
 					//Estas son las promesas que convierte en .json y va a mostrar en consola
 					.then(response => response.json()) //la respuesta se transformara en .json
 					.then(data => console.log(data)) //muestra la info por consola
+					.catch(error => console.log(error)); //muestra algun error por consola
+			},
+			obtenerContactos: () => {
+				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/Anthony")
+					//Es un GET al no especificar explicitamente el metodo
+					.then(response => response.json()) //la respuesta se transformara en .json
+					.then(data => setStore({ contactos: data })) //Guardara la info en contactos
 					.catch(error => console.log(error)); //muestra algun error por consola
 			}
 		}
