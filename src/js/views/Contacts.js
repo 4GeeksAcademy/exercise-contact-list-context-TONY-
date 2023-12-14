@@ -4,6 +4,7 @@ import { Context } from "../store/appContext.js";
 
 import { ContactCard } from "../component/ContactCard.js";
 import { Modal } from "../component/Modal";
+import { Editar } from "../component/Editar.js";
 
 export const Contacts = () => {
 	const { store, actions } = useContext(Context);
@@ -35,12 +36,14 @@ export const Contacts = () => {
 								id={item.id}
 								key={item.id}
 								onDelete={() => setState({ showModal: true, id: item.id })}
+								onEdit={() => setState({ showModal: true, id: item.id })}
 							/>
 						))}
 					</ul>
 				</div>
 			</div>
 			<Modal show={state.showModal} id={state.id} onClose={() => setState({ showModal: false })} />
+			<Editar show={state.showModal} id={state.id} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };
